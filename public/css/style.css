@@ -1,0 +1,70 @@
+.no-animate {
+    -webkit-transition: none !important;
+    transition: none !important;
+}
+
+html {
+    background: #FF1493;
+}
+
+body {
+    margin: 35px;
+    background: #00c5cd;
+}
+
+
+/*  */
+
+
+
+
+/*  */
+
+header {
+    padding: .5vw;
+    font-size: 0;
+    display: -ms-flexbox;
+    -ms-flex-wrap: wrap;
+    -ms-flex-direction: column;
+    -webkit-flex-flow: row wrap;
+    flex-flow: row wrap;
+    display: -webkit-box;
+    display: flex;
+}
+
+header div {
+    -webkit-box-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    width: 200px;
+    margin: .5vw;
+}
+
+img {
+    width: 75%;
+    height: 65%;
+    margin: 0px;
+}
+
+@media screen and (max-width: 400px) {
+    header div {
+        margin: 0;
+    }
+    header {
+        padding: 0;
+    }
+}
+
+
+/* =============FORM==================== */
+
+.form {
+    position: relative;
+    z-index: 1;
+    background: #FFFFFF;
+    max-width: 360px;
+    margin: 0 auto 100px;
+    padding: 45px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}

@@ -1,0 +1,31 @@
+<h1> {{detailCtrl.formData.name}}</h1>
+
+
+<div class="row">
+    <div class="clearfix">
+        <div class="form">
+            <form class="form-inline">
+                <div class="form-group">
+                    <!-- name -->
+                    <!-- <label class="control-label" for="name">Name</label> -->
+                    <input type="text" ng-model="detailCtrl.formData.name" class="form-control" id="name" placeholder="Name">
+                    <!-- image  -->
+                    <br>
+                    <!-- <label class="control-label" for="imageUrl">Image</label> -->
+                    <input type="text" ng-model="detailCtrl.formData.imgUrl" class="form-control" id="imageUrl" placeholder="Image URL">
+                    <!-- description -->
+                    <br>
+                    <!-- <label class="control-label" for="description">Description</label> -->
+                    <input type="text" ng-model="detailCtrl.formData.description" class="form-control" id="description" placeholder="Description">
+                </div>
+                <button type="button" ng-click="detailCtrl.update()" class="btn btn-default">Update</button>
+
+            </form>
+            <!-- <pre>{{listCtrl.allEntries | json}}</pre> -->
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <img src="{{detailCtrl.formData.imgUrl}}">
+</div>

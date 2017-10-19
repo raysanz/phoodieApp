@@ -1,0 +1,20 @@
+{
+  "name": "rudy-proj",
+  "description": "phoodie",
+  "main": "server.js",
+  "authors": [
+    "rudy <rudysanchez93@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "/public/index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-ui-router": "^1.0.8"
+  }
+}
