@@ -27,35 +27,37 @@
     </div>
 </div>
 
-
-<div class="container">
-    <div class="align-items-center">
-
-        <div class="col-md-3" ng-repeat="submission in listCtrl.allEntries ">
-            <!-- <a ui-sref="^.detail({id: submission._id})"> -->
-            <div class="row inline">
-                <div class="col-md-10" style="">
-                    <!-- start of image -->
-                    <a ui-sref="app.phoodie.detail({id: submission._id})">
-                        <img ng-src="{{submission.imgUrl}}" />
-                    </a>
-                    <!-- end of image -->
-                </div>
-                <div class="col-md-1">
-                    <!-- button starts -->
-                    <a class="btn btn-danger btn-xs" ng-click="listCtrl.delete(submission._id)" uib-popover="Delete" popover-trigger="'mouseenter'"
-                        href="" class="btn" data-toggle="panel-collapse">
-                        <span class="glyphicon glyphicon-trash"></span>
-                    </a>
-                    <a class="btn btn-default btn-xs" ui-sref="app.phoodie.detail({id: submission._id})" uib-popover="Edit" popover-trigger="'mouseenter'"
-                        href="" class="btn" data-toggle="panel-collapse">
-                        <span class="glyphicon glyphicon-edit"></span>
-                    </a>
+<div class="diff-color">
+    <div class="container diff-color">
+        <div class="align-items-center">
+            <div>
+                <div class="col-md-3" ng-repeat="submission in listCtrl.allEntries ">
+                    <!-- <a ui-sref="^.detail({id: submission._id})"> -->
+                    <div class="row inline">
+                        <div class="col-md-10" style="">
+                            <!-- start of image -->
+                            <a ui-sref="app.phoodie.detail({id: submission._id})">
+                                <img ng-src="{{submission.imgUrl}}" />
+                            </a>
+                            <!-- end of image -->
+                        </div>
+                        <div class="col-md-1">
+                            <!-- button starts -->
+                            <a class="btn btn-danger btn-xs" ng-click="listCtrl.delete(submission._id)" uib-popover="Delete" popover-trigger="'mouseenter'"
+                                href="" class="btn" data-toggle="panel-collapse">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                            <a class="btn btn-default btn-xs" ui-sref="app.phoodie.detail({id: submission._id})" uib-popover="Edit" popover-trigger="'mouseenter'"
+                                href="" class="btn" data-toggle="panel-collapse">
+                                <span class="glyphicon glyphicon-edit"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- button ends -->
                 </div>
             </div>
-            <!-- button ends -->
         </div>
-    </div>
 
+    </div>
 </div>
 </div>

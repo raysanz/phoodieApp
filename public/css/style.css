@@ -8,14 +8,31 @@ html {
 }
 
 body {
-    margin: 35px;
+    margin: 55px;
     background: #00c5cd;
+}
+
+.diff-color {
+    background-color: yellow;
+    margin: 15px;
+}
+
+.blue-text {
+    color: purple;
+    text-align: center;
+}
+
+.title-text {
+    color: purple;
+    text-align: right;
+}
+
+.container {
+    margin-bottom: 25px
 }
 
 
 /*  */
-
-
 
 
 /*  */
