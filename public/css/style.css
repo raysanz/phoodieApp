@@ -7,15 +7,21 @@ html {
     background: #FF1493;
 }
 
-body {
-    margin: 55px;
+.container-color {
     background: #00c5cd;
 }
 
-.diff-color {
+
+/* body {
+    margin: 55px;
+    background: #00c5cd;
+} */
+
+
+/* .diff-color {
     background-color: yellow;
     margin: 15px;
-}
+} */
 
 .blue-text {
     color: purple;
@@ -57,11 +63,12 @@ header div {
     margin: .5vw;
 }
 
-img {
+
+/* img {
     width: 75%;
     height: 65%;
     margin: 0px;
-}
+} */
 
 @media screen and (max-width: 400px) {
     header div {
@@ -84,4 +91,84 @@ img {
     padding: 45px;
     text-align: center;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+
+/* ============testing this out  */
+
+
+/* body {
+    font: 1.5em/1.67 'Open Sans', Arial, Sans-serif;
+    margin: 0;
+    background: #f7f9fc;
+} */
+
+.wrapper {
+    width: 100%;
+    margin: 7em auto;
+}
+
+.image-spacing {
+    margin: 1.5em 0;
+    padding: 0;
+    /*    -moz-column-gap: 1.5em;*/
+    /*    -webkit-column-gap: 1.5em;*/
+    column-gap: 1.5em;
+    /*this column-gap here will give each column in the masonry container the same spacing.*/
+    /*    font-size: ;*/
+}
+
+.image-tile {
+    background: yellow;
+    padding: .2rs5em;
+    margin-bottom: 1.5em;
+    /* height: 110%; */
+    width: 100%;
+    /* the margin-bottom will give the images in each column the same bottom spacing.
+    width: 100%; /*the width here sets the image width to what it is bounded by. Here it is the masonry column. So the image will take up 100% of the masonry column.*/
+}
+
+.image-tile img {
+    width: 100%;
+    border-radius: 25px;
+    /* height: 100%; */
+    /*since we don't want the span div to have its own space we edge it out by giving the image 100% width of the containing element.*/
+}
+
+@media only screen and (min-width: 400px) {
+    .image-spacing {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    .image-spacing {
+        -moz-column-count: 3;
+        -webkit-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .image-spacing {
+        -moz-column-count: 4;
+        -webkit-column-count: 4;
+        column-count: 4;
+    }
+}
+
+@media only screen and (min-width: 1100px) {
+    .image-spacing {
+        -moz-column-count: 5;
+        -webkit-column-count: 5;
+        column-count: 5;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .wrapper {
+        width: 1260px;
+    }
 }

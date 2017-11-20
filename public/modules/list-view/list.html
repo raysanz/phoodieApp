@@ -25,39 +25,36 @@
             <!-- <pre>{{listCtrl.allEntries | json}}</pre> -->
         </div>
     </div>
-</div>
 
-<div class="diff-color">
-    <div class="container diff-color">
-        <div class="align-items-center">
-            <div>
-                <div class="col-md-3" ng-repeat="submission in listCtrl.allEntries ">
-                    <!-- <a ui-sref="^.detail({id: submission._id})"> -->
-                    <div class="row inline">
-                        <div class="col-md-10" style="">
-                            <!-- start of image -->
-                            <a ui-sref="app.phoodie.detail({id: submission._id})">
-                                <img ng-src="{{submission.imgUrl}}" />
-                            </a>
-                            <!-- end of image -->
-                        </div>
-                        <div class="col-md-1">
-                            <!-- button starts -->
-                            <a class="btn btn-danger btn-xs" ng-click="listCtrl.delete(submission._id)" uib-popover="Delete" popover-trigger="'mouseenter'"
-                                href="" class="btn" data-toggle="panel-collapse">
-                                <span class="glyphicon glyphicon-trash"></span>
-                            </a>
-                            <a class="btn btn-default btn-xs" ui-sref="app.phoodie.detail({id: submission._id})" uib-popover="Edit" popover-trigger="'mouseenter'"
-                                href="" class="btn" data-toggle="panel-collapse">
-                                <span class="glyphicon glyphicon-edit"></span>
-                            </a>
-                        </div>
-                    </div>
-                    <!-- button ends -->
+
+
+
+    <div class="wrapper container-color">
+        <div class="image-spacing">
+                <div ng-repeat="submission in listCtrl.allEntries " class="image-tile">
+                    <!-- <div ng-repeat="pic in listCtrl.flick" class="image-tile"> -->
+                    <!-- <img ng-src="{{submission.imgUrl}}" alt="Title, May 2016" /> -->
+                    <div>
+                        <a ui-sref="app.phoodie.detail({id: submission._id})">
+                            <img ng-src="{{submission.imgUrl}}" />
+                        </a>
+                        <!-- end of image -->
+                   
+                    <!-- <div class="col-md-1"> -->
+                    <!-- button starts -->
+                    <a class="btn btn-danger btn-xs" ng-click="listCtrl.delete(submission._id)" uib-popover="Delete" popover-trigger="'mouseenter'"
+                        href="" class="btn" data-toggle="panel-collapse">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                    <a class="btn btn-default btn-xs" ui-sref="app.phoodie.detail({id: submission._id})" uib-popover="Edit" popover-trigger="'mouseenter'"
+                        href="" class="btn" data-toggle="panel-collapse">
+                        <span class="glyphicon glyphicon-edit"></span>
+                    </a>
+                </div>
+                    <!-- <img ng-src="https://farm{{pic.farm}}.staticflickr.com/{{pic.server}}/{{pic.id}}_{{pic.secret}}_m.jpg" alt="Title, May 2016"
+                        /> -->
+                    <!-- </div> -->
                 </div>
             </div>
         </div>
-
     </div>
-</div>
-</div>

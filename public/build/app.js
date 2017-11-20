@@ -143,9 +143,9 @@ $(function () {
 
     angular.module('phoodieApp.main').controller('phoodieListController', PhoodieListController);
 
-    PhoodieListController.$inject = ['phoodieService'];
+    PhoodieListController.$inject = ['phoodieService', "$http"];
 
-    function PhoodieListController(phoodieService) {
+    function PhoodieListController(phoodieService, $http) {
         'use strict';
 
         var vm = this;
@@ -153,6 +153,7 @@ $(function () {
         vm.line = "This is from the list controller";
         //vm.tagline = 'Hack The Planet!'
         vm.formData = {};
+        vm.searchTerm = 'snacks';
         // vm.allEntries = function getAllEntries(phoodieService) {
         //     debugger
 
@@ -187,9 +188,22 @@ $(function () {
             console.log('Error: ' + data.errors);
         }
 
-        console.log(vm.getAll);
+        // ///
+        // function getFlickerPhotos(imageService) {
+        //     return imageService.getPhotos()
+        //         .then(function (response) {
+        //             console.log(response.data.photos.photo);
+        //             return response.data.photos.photo;
+        //         })
+        //         .catch(function (error) {
+        //             console.log(error)
+        //         });
+        // }
+        // ///
+        init();
 
         function init() {
+            getPhotos();
 
             return phoodieService.getAll().then(function (data) {
 
@@ -200,29 +214,14 @@ $(function () {
             });
         }
 
-        init();
-    }
-})();
-'use strict';
-
-//===========================================CONTROLLER=====================================================//
-(function () {
-    'use strict';
-
-    angular.module('phoodieApp.main').controller('homeController', HomeController);
-
-    HomeController.$inject = [];
-
-    function HomeController() {
-        'use strict';
-
-        var vm = this;
-        // vm.allEntries = allEntries
-        vm.line = "This is from the main controller ";
-
-        init();
-
-        function init() {}
+        function getPhotos() {
+            $http.get('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=2a71ca417afbee1ea7e948e802e43561&tags=' + vm.searchTerm + '&per_page=100&page=1&format=json&nojsoncallback=1&api_sig=').then(function (res) {
+                debugger;
+                console.log(res.data.photos.photo);
+                vm.flick = res.data.photos.photo;
+            });
+            debugger;
+        };
     }
 })();
 'use strict';
@@ -279,5 +278,27 @@ $(function () {
             console.log(error.data);
             return $q.reject(error.data);
         }
+    }
+})();
+'use strict';
+
+//===========================================CONTROLLER=====================================================//
+(function () {
+    'use strict';
+
+    angular.module('phoodieApp.main').controller('homeController', HomeController);
+
+    HomeController.$inject = [];
+
+    function HomeController() {
+        'use strict';
+
+        var vm = this;
+        // vm.allEntries = allEntries
+        vm.line = "This is from the main controller ";
+
+        init();
+
+        function init() {}
     }
 })();
