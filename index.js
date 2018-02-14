@@ -8,7 +8,9 @@ const port = process.env.PORT || 8080
 const mongoose = require('mongoose')
 
 mongoose.Promise = global.Promise
-mongoose.connect(process.env.MONGOOSE_URL || 'mongodb://localhost:27017/rudy-crud')
+mongoose.connect(process.env.MONGOOSE_URL || 'mongodb://localhost:27017/rudy-crud', {
+    useMongoClient: true
+})
 
 process.on('SIGINT', function () {
     mongoose.connection.close(function () {
@@ -17,10 +19,9 @@ process.on('SIGINT', function () {
     })
 })
 /////needed to get the data into the req.body
-app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({
-//     extended: true
-// }))
+app.use(bodyParser.urlencoded({
+    extended: true
+}))
 /////////end of req.body///////////////////////
 
 app.use(

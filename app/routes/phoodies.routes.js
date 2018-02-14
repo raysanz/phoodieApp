@@ -7,7 +7,7 @@ const phoodiesController = require('../controller/phoodies.controller')
 
 
 module.exports = router
-
+////phoodiesController.insert
 
 // ===========================================
 router.post('/', phoodiesController.insert)

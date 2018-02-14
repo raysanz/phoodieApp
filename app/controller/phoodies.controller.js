@@ -15,12 +15,10 @@ module.exports = {
 
 
 function insert(req, res) {
-
+    debugger
     phoodiesService
         .insert(req.body)
         .then(entry => {
-
-
             const responseModel = new responses.ItemResponse();
             responseModel.item = entry;
             res

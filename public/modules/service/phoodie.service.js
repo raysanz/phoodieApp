@@ -18,6 +18,7 @@
         }
 
         function insert(data) {
+            debugger
 
             return $http.post('/api/phoodie', data)
                 .then(xhrSuccess)

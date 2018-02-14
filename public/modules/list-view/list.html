@@ -1,6 +1,7 @@
 <h1 class="blue-text">
 
     The Snack Cabinet </h1>
+<h1 class="blue-text">{{listCtrl.line}}</h1>
 
 <div class="row">
     <div class="clearfix">
@@ -22,7 +23,7 @@
                 <button type="button" ng-click="listCtrl.insert()" class="btn btn-default">Send</button>
 
             </form>
-            <!-- <pre>{{listCtrl.allEntries | json}}</pre> -->
+            <pre>{{listCtrl.allEntries | json}}</pre>
         </div>
     </div>
 
@@ -31,15 +32,15 @@
 
     <div class="wrapper container-color">
         <div class="image-spacing">
-                <div ng-repeat="submission in listCtrl.allEntries " class="image-tile">
-                    <!-- <div ng-repeat="pic in listCtrl.flick" class="image-tile"> -->
-                    <!-- <img ng-src="{{submission.imgUrl}}" alt="Title, May 2016" /> -->
-                    <div>
-                        <a ui-sref="app.phoodie.detail({id: submission._id})">
-                            <img ng-src="{{submission.imgUrl}}" />
-                        </a>
-                        <!-- end of image -->
-                   
+            <div ng-repeat="submission in listCtrl.allEntries " class="image-tile">
+                <!-- <div ng-repeat="pic in listCtrl.flick" class="image-tile"> -->
+                <!-- <img ng-src="{{submission.imgUrl}}" alt="Title, May 2016" /> -->
+                <div>
+                    <a ui-sref="app.phoodie.detail({id: submission._id})">
+                        <img ng-src="{{submission.imgUrl}}" />
+                    </a>
+                    <!-- end of image -->
+
                     <!-- <div class="col-md-1"> -->
                     <!-- button starts -->
                     <a class="btn btn-danger btn-xs" ng-click="listCtrl.delete(submission._id)" uib-popover="Delete" popover-trigger="'mouseenter'"
@@ -51,10 +52,10 @@
                         <span class="glyphicon glyphicon-edit"></span>
                     </a>
                 </div>
-                    <!-- <img ng-src="https://farm{{pic.farm}}.staticflickr.com/{{pic.server}}/{{pic.id}}_{{pic.secret}}_m.jpg" alt="Title, May 2016"
+                <!-- <img ng-src="https://farm{{pic.farm}}.staticflickr.com/{{pic.server}}/{{pic.id}}_{{pic.secret}}_m.jpg" alt="Title, May 2016"
                         /> -->
-                    <!-- </div> -->
-                </div>
+                <!-- </div> -->
             </div>
         </div>
     </div>
+</div>

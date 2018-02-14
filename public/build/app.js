@@ -1,6 +1,8 @@
 'use strict';
 
 $(function () {
+    'use strict';
+
     angular.bootstrap(document, ['phoodieApp']);
 });
 "use strict";
@@ -9,15 +11,7 @@ $(function () {
 (function () {
     "use strict";
 
-    angular.module("phoodieApp", [
-
-    // "angular-ui-router",
-    "ui.router", "ui.bootstrap", "phoodieApp.main", "phoodieApp.services"]
-    /// "phoodieApp.controller",
-
-
-    ).config(RouteConfig).run(function ($rootScope, $document, $window) {
-
+    angular.module("phoodieApp", ["ui.router", "ui.bootstrap", "phoodieApp.main", "phoodieApp.services"]).config(RouteConfig).run(function ($rootScope, $document, $window) {
         $rootScope.$on('$stateChangeError', console.log.bind(console));
         $rootScope.$on("$stateChangeSuccess", function () {
             $document[0].body.scrollTop = $document[0].documentElement.scrollTop = 0;
@@ -25,7 +19,6 @@ $(function () {
     });
 
     RouteConfig.$inject = ["$stateProvider", "$urlRouterProvider", "$locationProvider"];
-
     function RouteConfig($stateProvider, $urlRouterProvider, $locationProvider) {
         $urlRouterProvider.otherwise("/");
         $locationProvider.html5Mode(true);
@@ -148,21 +141,21 @@ $(function () {
     function PhoodieListController(phoodieService, $http) {
         'use strict';
 
+        debugger;
+
         var vm = this;
         // vm.allEntries = allEntries
         vm.line = "This is from the list controller";
         //vm.tagline = 'Hack The Planet!'
         vm.formData = {};
         vm.searchTerm = 'snacks';
-        // vm.allEntries = function getAllEntries(phoodieService) {
-        //     debugger
-
-        // }
+        vm.allEntries = function getAllEntries(phoodieService) {
+            debugger;
+        };
         vm.delete = function (id) {
             debugger;
             phoodieService.removeById(id).then(onDeleteSuccess).catch(onError);
         };
-
         function onDeleteSuccess(data) {
             debugger;
             vm.formData = null;
@@ -172,10 +165,8 @@ $(function () {
             vm.allEntries.splice(removeIndex, 1);
         }
         vm.insert = function () {
-
             phoodieService.insert(vm.formData).then(onInsertSuccess).catch(onError);
         };
-
         function onInsertSuccess(data) {
 
             vm.formData = null;
@@ -183,45 +174,31 @@ $(function () {
                 vm.allEntries.push(data.item);
             }
         }
-
         function onError(data) {
             console.log('Error: ' + data.errors);
         }
+    }
+})();
+'use strict';
 
-        // ///
-        // function getFlickerPhotos(imageService) {
-        //     return imageService.getPhotos()
-        //         .then(function (response) {
-        //             console.log(response.data.photos.photo);
-        //             return response.data.photos.photo;
-        //         })
-        //         .catch(function (error) {
-        //             console.log(error)
-        //         });
-        // }
-        // ///
+//===========================================CONTROLLER=====================================================//
+(function () {
+    'use strict';
+
+    angular.module('phoodieApp.main').controller('homeController', HomeController);
+
+    HomeController.$inject = [];
+
+    function HomeController() {
+        'use strict';
+
+        var vm = this;
+        // vm.allEntries = allEntries
+        vm.line = "This is from the main controller ";
+
         init();
 
-        function init() {
-            getPhotos();
-
-            return phoodieService.getAll().then(function (data) {
-
-                vm.allEntries = data.items;
-                console.log(vm.allEntries);
-            }).catch(function (error) {
-                console.log(error);
-            });
-        }
-
-        function getPhotos() {
-            $http.get('https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=2a71ca417afbee1ea7e948e802e43561&tags=' + vm.searchTerm + '&per_page=100&page=1&format=json&nojsoncallback=1&api_sig=').then(function (res) {
-                debugger;
-                console.log(res.data.photos.photo);
-                vm.flick = res.data.photos.photo;
-            });
-            debugger;
-        };
+        function init() {}
     }
 })();
 'use strict';
@@ -245,6 +222,7 @@ $(function () {
         };
 
         function insert(data) {
+            debugger;
 
             return $http.post('/api/phoodie', data).then(xhrSuccess).catch(onError);
         }
@@ -278,27 +256,5 @@ $(function () {
             console.log(error.data);
             return $q.reject(error.data);
         }
-    }
-})();
-'use strict';
-
-//===========================================CONTROLLER=====================================================//
-(function () {
-    'use strict';
-
-    angular.module('phoodieApp.main').controller('homeController', HomeController);
-
-    HomeController.$inject = [];
-
-    function HomeController() {
-        'use strict';
-
-        var vm = this;
-        // vm.allEntries = allEntries
-        vm.line = "This is from the main controller ";
-
-        init();
-
-        function init() {}
     }
 })();
